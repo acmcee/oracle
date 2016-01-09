@@ -1,0 +1,34 @@
+div#butt input {
+    margin: 10px 0 0 10px;
+    background: red;
+    color: #fff;
+    width: 100px;
+    height: 30px;
+    font: 14px Verdana, Arial, Helvetica, sans-serif;
+}
+#con {
+    margin-left: 50px;
+    
+    height:45px;
+}
+.fenye {
+    margin: 4px 4px 4px 4px;
+    
+    float:left;
+    color: #006400;;
+    width: 25px;
+    height: 25px;
+    text-align:center;
+    font: 18px Verdana, Arial, Helvetica, sans-serif;
+}
+#foot{
+    margin: 0 auto;
+    text-align: center;
+}
+#chaxun {
+    margin: 10px 0 0 10px;
+    background: #AAD7FF;
+    width: 80px;
+    height: 28px;
+    font: 14px Verdana, Arial, Helvetica, sans-serif;
+}
