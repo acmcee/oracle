@@ -12,7 +12,14 @@ div#butt input {
     width: 150px;
     height: 30px;
     font: 14px Verdana, Arial, Helvetica, sans-serif;
-}</style>
+}
+#foot{
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+</style>
 </head>
 
 <body>
@@ -103,4 +110,8 @@ else {
 mysqli_close($con);
 ?>
 <div>
+<div id="foot">
+<p>©CopyRight 2016-2016 example.com  All Rights Reserved. 测试也有版权，请尊重</p>
+</div>
+
 </body></html>
