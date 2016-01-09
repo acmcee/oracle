@@ -28,7 +28,7 @@ $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //èŽ·å
 
 echo "<table>";
 While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
-       echo "<tr><td>"$it[0]."</td><td>".$it[1]."</td><td>".$it[2]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[5]."</td></tr>";
+       echo "<tr><td>"$it[0]."</td></tr>";
 }  
 echo "</table>";
 
