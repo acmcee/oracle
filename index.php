@@ -8,10 +8,10 @@ if (!$con)
   die('Could not connect: ' . mysql_error());
   }
    
-if (mysqli_query($con,'SET NAMES UTF8')){echo "UTF-8 set successful"."<br />";} 
+if (!mysqli_query($con,'SET NAMES UTF8')){echo "UTF-8 set failed"."<br />";} 
 
 $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
-echo "<h1>oracle数据量总量是：".$total."</h1><br />";
+echo "<h1>oracle数据库主机总量是：".$total."</h1><br />";
 
 $pagenum=ceil($total/$num);      //获得总页数 pagenum
 
@@ -27,8 +27,10 @@ $offset=($page-1)*$num;
 $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
 
 echo "<table border=0 cellspacing=10 >";
+echo  "<tr><th>ID</th><th>sys_domain</th>
+<th>system</th><th>system_level</th></tr>"
 While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
-       echo "<tr><td>".$it[0]."</td><td>".$it[1]."</td><td>".$it[2]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[5]."</td></tr>";
+       echo "<tr><td>".$it[0]."</td><td>".$it[1]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[5]."</td><td>".$it[6]."</td></tr>";
 }  
 echo "</table>";
 
