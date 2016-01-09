@@ -11,15 +11,8 @@ if (!$con)
    
 if (!mysqli_query($con,'SET NAMES UTF8')){echo "UTF-8 set failed"."<br />";} 
 
-$total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
-echo "<h1>oracle数据库主机总量是：".$total."</h1><br />";
 
-$pagenum=ceil($total/$num);      //获得总页数 pagenum
 
-If($page>$pagenum || $page == 0){
-       Echo "Error : Can Not Found The page .<br />";
-       Exit;
-}
 
 
 $offset=($page-1)*$num; 
@@ -37,6 +30,15 @@ echo "<a href='index.php?category=BC'>BC</a>";
 
 
 If($category == "无"){
+    $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
+    echo "<h1>oracle数据库主机总量是：".$total."</h1><br />";
+    $pagenum=ceil($total/$num);      //获得总页数 pagenum
+    
+    If($page>$pagenum || $page == 0){
+       Echo "Error : Can Not Found The page .<br />";
+       Exit;
+    }
+    
     $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
     echo "<table border=0 cellspacing=10 >";
     echo  "<tr><th>ID</th><th>sys_domain</th>
@@ -52,6 +54,15 @@ If($category == "无"){
     }
 }
 else {
+    $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where sys_level like '%".$category."%'"));
+    echo "<h1>oracle数据库主机总量是：".$total."</h1><br />";
+    $pagenum=ceil($total/$num);      //获得总页数 pagenum
+    
+    If($page>$pagenum || $page == 0){
+       Echo "Error : Can Not Found The page .<br />";
+       Exit;
+    }
+    
     $info=mysqli_query($con,"select * from `oracle` where sys_level like '%".$category."%' limit $offset,$num "); 
     echo "<table border=0 cellspacing=10 >";
     echo  "<tr><th>ID</th><th>sys_domain</th>
@@ -62,7 +73,7 @@ else {
     echo "</table>";
     
     For($i=1;$i<=$pagenum;$i++){
-        $show=($i!=$page)?"<a href='index.php?page=".$i."'>$i</a>":"<b>$i</b>";
+        $show=($i!=$page)?"<a href='index.php?page=".$i."&category=$category'>$i</a>":"<b>$i</b>";
         echo $show." ";
     }
     
