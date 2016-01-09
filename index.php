@@ -43,10 +43,10 @@ echo "<div id='butt'><input type='button' value='一般系统' onclick=\"javascr
 echo "<div id='butt'><input type='button' value='准发布' onclick=\"javascript:window.location.href='index.php?category=准发布';\"></div>";
 echo "<div id='butt'><input type='button' value='容灾' onclick=\"javascript:window.location.href='index.php?category=容灾';\"></div>";
 echo "<div id='butt'><input type='button' value='BC' onclick=\"javascript:window.location.href='index.php?category=BC';\"></div>";
-
+echo "<br/>"
 If($category == "所有"){
     $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
-    echo "<h1>oracle数据库主机总量是：".$total."</h1><br />";
+    echo "<h1>oracle数据库主机总量是：".$total."</h1><br/>";
     $pagenum=ceil($total/$num);      //获得总页数 pagenum
     
     If($page>$pagenum || $page == 0){
