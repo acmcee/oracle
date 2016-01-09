@@ -21,6 +21,7 @@ $offset=($page-1)*$num;
  
 
 //输出系统分类
+echo "<a href='index.php?category=无'>所有</a>";
 echo "<a href='index.php?category=核心系统'>核心系统</a>";
 echo "<a href='index.php?category=重要系统'>重要系统</a>";
 echo "<a href='index.php?category=一般系统'>一般系统</a>";
