@@ -31,7 +31,7 @@ $offset=($page-1)*$num;
  
 $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
 
-echo 
+echo "<a href='index.php?category=ces'>$i</a>";
 //输出系统分类
 echo "<table border=0 cellspacing=10 >";
 echo  "<tr><th>ID</th><th>sys_domain</th>
