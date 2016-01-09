@@ -35,7 +35,7 @@ $offset=($page-1)*$num;
 
 //输出系统分类
 echo "<div id='butt'>";
-echo "<input type='button' value='所有' onclick=\"javascript:window.location.href='index.php?category=所有';\"">;
+echo "<input type='button' value='所有' onclick=\"javascript:window.location.href='index.php?category=所有';\">";
 echo "</div>";
 echo "<a href='index.php?category=核心系统'>核心系统</a>";
 echo "<a href='index.php?category=重要系统'>重要系统</a>";
