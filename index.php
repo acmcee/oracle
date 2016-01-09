@@ -43,7 +43,8 @@ echo "<div id='butt'><input type='button' value='一般系统' onclick=\"javascr
 echo "<div id='butt'><input type='button' value='准发布' onclick=\"javascript:window.location.href='index.php?category=准发布';\"></div>";
 echo "<div id='butt'><input type='button' value='容灾' onclick=\"javascript:window.location.href='index.php?category=容灾';\"></div>";
 echo "<div id='butt'><input type='button' value='BC' onclick=\"javascript:window.location.href='index.php?category=BC';\"></div>";
-echo "<br/>"
+echo "<br/>";
+
 If($category == "所有"){
     $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
     echo "<h1>oracle数据库主机总量是：".$total."</h1><br/>";
@@ -96,11 +97,9 @@ else {
     
 }
 
-
 /*显示分页信息，假如是当页则显示粗体的数字，其余的页数则为超连接，假如当前为第三页则显示如下
 1 2 3 4 5 6
 */
-
 mysqli_close($con);
 ?>
 
