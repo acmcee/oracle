@@ -1,4 +1,10 @@
-div#butt input {
+#search {
+    text-align: center;
+}
+div.butt {
+    text-align:center;
+}
+div.butt input {
     margin: 10px 0 0 10px;
     background: red;
     color: #fff;
@@ -6,6 +12,8 @@ div#butt input {
     height: 30px;
     font: 14px Verdana, Arial, Helvetica, sans-serif;
 }
+
+
 #con {
     margin-left: 50px;
     height:45px;
@@ -35,4 +43,8 @@ div#butt input {
     margin: 0 auto;
     text-align: center;
     margin-top: 100px;
+}
+td {
+    word-break:break-all; 
+    word-wrap:break-all;
 }
