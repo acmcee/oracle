@@ -107,12 +107,10 @@ else {
     echo "<hr>";
     $info=mysqli_query($con,"select * from `oracle` where sys_level like '%".$category."%' limit $offset,$num "); 
     echo "<table border=0 cellspacing=10 >";
-    echo  "<tr><th>ID</th><th>sys_domain</th>
-    <th>system</th><th>系统等级</th>
-    <th>数据库名</th> <th>TNS(4A)</th>
-    </tr>";
-    While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
-        echo "<tr><td>".$it[0]."</td><td>".$it[1]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[6]."</td><td>".$it[7]."</td></tr>";
+    echo  "<tr><th>ID</th><th>系统域</th><th>数据库名</th><th>TNS(4A)</th><th>TNS(OLD)</th>
+    <th>主机名</th></tr>";
+    While($it=mysqli_fetch_array($info,MYSQLI_ASSOC)){
+        echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td></tr>";
     }  
     echo "</table>";
     echo "<hr>";
