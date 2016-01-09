@@ -1,6 +1,7 @@
 <?php
 $con = mysqli_connect( "192.168.56.102","root","root","oracle_list");
 $page=isset($_GET['page'])?intval($_GET['page']):1; 
+$category=isset($_GET['category'])?$_GET['category']:"无"; 
 //这句就是获取page=18中的page的值，假如不存在page，那么页数就是1。
 $num=10;         //每页显示10条数据
 if (!$con)
@@ -16,7 +17,11 @@ echo "<h1>oracle数据库主机总量是：".$total."</h1><br />";
 $pagenum=ceil($total/$num);      //获得总页数 pagenum
 
 If($page>$pagenum || $page == 0){
-       Echo "Error : Can Not Found The page .";
+       Echo "Error : Can Not Found The page .<br />";
+       Exit;
+}
+If($category == "无"){
+       Echo "category未设置 .<br />";
        Exit;
 }
 
@@ -26,6 +31,8 @@ $offset=($page-1)*$num;
  
 $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
 
+echo 
+//输出系统分类
 echo "<table border=0 cellspacing=10 >";
 echo  "<tr><th>ID</th><th>sys_domain</th>
 <th>system</th><th>system_level</th></tr>";
