@@ -81,9 +81,9 @@ If($category == "所有"){
     echo "<hr>";
     echo "<table border=0 cellspacing=10 >";
     echo  "<tr><th>ID</th><th>系统域</th><th>系统等级</th><th>数据库名</th><th>TNS(4A)</th><th>TNS(OLD)</th>
-    <th>主机名</th></tr>";
+    <th>主机名</th><th>IP</th><th>VIP</th><th>域名</th></tr>";
     While($it=mysqli_fetch_array($info,MYSQLI_ASSOC)){
-        echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["sys_level"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td></tr>";
+        echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["sys_level"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
     }  
     echo "</table>";
     echo "<hr>";
@@ -108,9 +108,9 @@ else {
     $info=mysqli_query($con,"select * from `oracle` where sys_level like '%".$category."%' limit $offset,$num "); 
     echo "<table border=0 cellspacing=10 >";
     echo  "<tr><th>ID</th><th>系统域</th><th>数据库名</th><th>TNS(4A)</th><th>TNS(OLD)</th>
-    <th>主机名</th></tr>";
+    <th>主机名</th><th>IP</th><th>VIP</th><th>域名</th></tr>";
     While($it=mysqli_fetch_array($info,MYSQLI_ASSOC)){
-        echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td></tr>";
+        echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
     }  
     echo "</table>";
     echo "<hr>";
