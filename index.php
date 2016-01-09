@@ -88,7 +88,7 @@ if (($ip=="") && ($host=="")) {
         $pagenum=ceil($total/$num);      //获得总页数 pagenum
         
         if($page>$pagenum || $page == 0){
-        echo "Error : Can Not Found The page .<br />";
+        echo "<div class =\"smile\"> :( no result </div>.<br />";
         exit;
         }
         echo "<hr>";
@@ -129,7 +129,7 @@ else {
     $pagenum=ceil($total/$num); 
     //获取总页数
     if($page>$pagenum || $page == 0){
-        echo "Error : Can Not Found The page .<br />";
+        echo "<div class =\"smile\"> :( no result </div>.<br />";
         exit;
         }
     echo "<hr>";
