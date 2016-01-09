@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1ArrayArrayArray/xhtml">
 <head>
+<title>oracle数据库列表</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Description" content="测试乱码" />
 
@@ -9,9 +10,24 @@ div#butt input {
     margin: 10px 0 0 10px;
     background: red;
     color: #fff;
-    width: 150px;
+    width: 100px;
     height: 30px;
     font: 14px Verdana, Arial, Helvetica, sans-serif;
+}
+#con {
+    margin-left: 50px;
+    
+    height:45px;
+}
+.fenye {
+    margin: 4px 4px 4px 4px;
+    
+    float:left;
+    color: #006400;;
+    width: 25px;
+    height: 25px;
+    text-align:center;
+    font: 18px Verdana, Arial, Helvetica, sans-serif;
 }
 #foot{
     margin: 0 auto;
@@ -62,18 +78,22 @@ If($category == "所有"){
     }
     
     $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
+    echo "<hr>";
     echo "<table border=0 cellspacing=10 >";
-    echo  "<tr><th>ID</th><th>系统域</th>
-    <th>系统等级</th><th>数据库名</th></tr>";
-    While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
-        echo "<tr><td>".$it[0]."</td><td>".$it[3]."</td><td>".$it[5]."</td><td>".$it[5]."</td><td>".$it[5]."</td><td>".$it[6]."</td></tr>";
+    echo  "<tr><th>ID</th><th>系统域</th><th>系统等级</th><th>数据库名</th><th>TNS(4A)</th><th>TNS(OLD)</th>
+    <th>主机名</th></tr>";
+    While($it=mysqli_fetch_array($info,MYSQLI_ASSOC)){
+        echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["sys_level"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td></tr>";
     }  
     echo "</table>";
-    
+    echo "<hr>";
+    echo "<div id= \"con\">";
     For($i=1;$i<=$pagenum;$i++){
+        echo "<div class = \"fenye\">";
         $show=($i!=$page)?"<a href='index.php?page=".$i."'>$i</a>":"<b>$i</b>";
-        echo $show." ";
+        echo $show."</div>";
     }
+    echo "</div>";
 }
 else {
     $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where sys_level like '%".$category."%'"));
@@ -84,7 +104,7 @@ else {
        Echo "Error : Can Not Found The page .<br />";
        Exit;
     }
-    
+    echo "<hr>";
     $info=mysqli_query($con,"select * from `oracle` where sys_level like '%".$category."%' limit $offset,$num "); 
     echo "<table border=0 cellspacing=10 >";
     echo  "<tr><th>ID</th><th>sys_domain</th>
@@ -95,12 +115,14 @@ else {
         echo "<tr><td>".$it[0]."</td><td>".$it[1]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[6]."</td><td>".$it[7]."</td></tr>";
     }  
     echo "</table>";
-    
-    For($i=1;$i<=$pagenum;$i++){
+    echo "<hr>";
+    echo "<div id= \"con\">";
+    for($i=1;$i<=$pagenum;$i++){
+        echo "<div class = \"fenye\">";
         $show=($i!=$page)?"<a href='index.php?page=".$i."&category=$category'>$i</a>":"<b>$i</b>";
-        echo $show." ";
+        echo $show."</div>";
     }
-    
+    echo "</div>";
 }
 
 /*显示分页信息，假如是当页则显示粗体的数字，其余的页数则为超连接，假如当前为第三页则显示如下
