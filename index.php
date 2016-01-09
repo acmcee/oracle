@@ -34,9 +34,9 @@ $offset=($page-1)*$num;
 //假如第一页则为(1-1)*10=0,第二页为(2-1)*10=10。(传入的页数-1) * 每页的数据 得到limit第一个参数的值 
 
 //输出系统分类
-echo "<div id='butt'>"
-echo "<input type='button' value='所有' onclick=\"javascript:window.location.href='index.php?category=所有';\"">
-echo "</div>"
+echo "<div id='butt'>";
+echo "<input type='button' value='所有' onclick=\"javascript:window.location.href='index.php?category=所有';\"">;
+echo "</div>";
 echo "<a href='index.php?category=核心系统'>核心系统</a>";
 echo "<a href='index.php?category=重要系统'>重要系统</a>";
 echo "<a href='index.php?category=一般系统'>一般系统</a>";
