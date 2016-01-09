@@ -46,7 +46,7 @@ if (!$con)
   }
    
 if (!mysqli_query($con,'SET NAMES UTF8')){echo "UTF-8 set failed"."<br />";} 
-if (($ip=="") && ($host=="")) {echo "全控的啊";}
+
 
 $offset=($page-1)*$num; 
 //获取limit的第一个参数的值 offset ，
