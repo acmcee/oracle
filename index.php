@@ -10,4 +10,10 @@ else
     echo "success";
     
 }    
+
+$total=mysql_num_rows(mysql_query("select * from `table`"));
+echo "total num is $total"
+
+
+
 ?>
