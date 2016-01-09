@@ -1,3 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1ArrayArrayArray/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Description" content="测试乱码" />
+
+<style type="text/css">
+div#butt input {
+    margin: 10px 0 0 10px;
+    background: red;
+    color: #fff;
+    width: 150px;
+    height: 30px;
+    font: 14px Verdana, Arial, Helvetica, sans-serif;
+}</style>
+</head>
+
+<body>
 <?php
 $con = mysqli_connect( "192.168.56.102","root","root","oracle_list");
 $page=isset($_GET['page'])?intval($_GET['page']):1; 
@@ -11,24 +29,20 @@ if (!$con)
    
 if (!mysqli_query($con,'SET NAMES UTF8')){echo "UTF-8 set failed"."<br />";} 
 
-
-
-
-
 $offset=($page-1)*$num; 
 //获取limit的第一个参数的值 offset ，
-//假如第一页则为(1-1)*10=0,第二页为(2-1)*10=10。(传入的页数-1) * 每页的数据 得到limit第一个参数的值
- 
+//假如第一页则为(1-1)*10=0,第二页为(2-1)*10=10。(传入的页数-1) * 每页的数据 得到limit第一个参数的值 
 
 //输出系统分类
-echo "<a href='index.php?category=所有'>所有</a>";
+echo "<div id='butt'>"
+echo "<input type='button' value='所有' onclick=\"javascript:window.location.href='index.php?category=所有';\"">
+echo "</div>"
 echo "<a href='index.php?category=核心系统'>核心系统</a>";
 echo "<a href='index.php?category=重要系统'>重要系统</a>";
 echo "<a href='index.php?category=一般系统'>一般系统</a>";
 echo "<a href='index.php?category=容灾'>容灾</a>";
 echo "<a href='index.php?category=准发布'>准发布</a>";
 echo "<a href='index.php?category=BC'>BC</a>";
-
 
 If($category == "所有"){
     $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
@@ -89,3 +103,5 @@ else {
 
 mysqli_close($con);
 ?>
+
+</body></html>
