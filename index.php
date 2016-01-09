@@ -26,15 +26,14 @@ $offset=($page-1)*$num;
  
 $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
 
-echo "<table border=0 cellspacing=10 >"
+echo "<table border=0 cellspacing=10 >";
 While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
        echo "<tr><td>"$it[0]."</td><td>".$it[1]."</td><td>".$it[2]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[5]."</td></tr>";
 }  
-echo "</table>"
+echo "</table>";
 
 
 For($i=1;$i<=$pagenum;$i++){
-
        $show=($i!=$page)?"<a href='index.php?page=".$i."'>$i</a>":"<b>$i</b>";
        echo $show." ";
 }
