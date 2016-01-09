@@ -15,17 +15,18 @@ div.butt input {
 
 
 #con {
-    margin-left: 50px;
+    
     height:45px;
+    text-align:center;
 }
 .fenye {
     margin: 4px 4px 4px 4px;
-    float:left;
+    display:inline-block;
     color: #006400;;
     width: 25px;
     height: 25px;
     text-align:center;
-    font: 18px Verdana, Arial, Helvetica, sans-serif;
+    font: 24px Verdana, Arial, Helvetica, sans-serif;
 }
 #foot{
     margin: 0 auto;
