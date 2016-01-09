@@ -7,7 +7,6 @@
 <style type="text/css">
 div#butt input {
     margin: 10px 0 0 10px;
-    float:left;
     background: red;
     color: #fff;
     width: 150px;
@@ -36,12 +35,12 @@ $offset=($page-1)*$num;
 
 //输出系统分类
 
-echo "<div id='butt'><input type='button' value='所有' onclick=\"javascript:window.location.href='index.php?category=所有';\"></div>";
-echo "<div id='butt'><input type='button' value='核心系统' onclick=\"javascript:window.location.href='index.php?category=核心系统';\"></div>";
-echo "<div id='butt'><input type='button' value='重要系统' onclick=\"javascript:window.location.href='index.php?category=重要系统';\"></div>";
-echo "<div id='butt'><input type='button' value='一般系统' onclick=\"javascript:window.location.href='index.php?category=一般系统';\"></div>";
-echo "<div id='butt'><input type='button' value='准发布' onclick=\"javascript:window.location.href='index.php?category=准发布';\"></div>";
-echo "<div id='butt'><input type='button' value='容灾' onclick=\"javascript:window.location.href='index.php?category=容灾';\"></div>";
+echo "<div id='butt'><input type='button' value='所有' onclick=\"javascript:window.location.href='index.php?category=所有';\">";
+echo "<div id='butt'><input type='button' value='核心系统' onclick=\"javascript:window.location.href='index.php?category=核心系统';\">";
+echo "<div id='butt'><input type='button' value='重要系统' onclick=\"javascript:window.location.href='index.php?category=重要系统';\">";
+echo "<div id='butt'><input type='button' value='一般系统' onclick=\"javascript:window.location.href='index.php?category=一般系统';\">";
+echo "<div id='butt'><input type='button' value='准发布' onclick=\"javascript:window.location.href='index.php?category=准发布';\">";
+echo "<div id='butt'><input type='button' value='容灾' onclick=\"javascript:window.location.href='index.php?category=容灾';\">";
 echo "<div id='butt'><input type='button' value='BC' onclick=\"javascript:window.location.href='index.php?category=BC';\"></div>";
 echo "<br/>";
 
