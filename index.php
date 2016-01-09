@@ -20,31 +20,55 @@ If($page>$pagenum || $page == 0){
        Echo "Error : Can Not Found The page .<br />";
        Exit;
 }
-If($category == "无"){
-       Echo "category未设置 .<br />";
-}
+
 
 $offset=($page-1)*$num; 
 //获取limit的第一个参数的值 offset ，
 //假如第一页则为(1-1)*10=0,第二页为(2-1)*10=10。(传入的页数-1) * 每页的数据 得到limit第一个参数的值
  
-$info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
 
-echo "<a href='index.php?category=ces'>$i</a>";
 //输出系统分类
-echo "<table border=0 cellspacing=10 >";
-echo  "<tr><th>ID</th><th>sys_domain</th>
-<th>system</th><th>system_level</th></tr>";
-While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
-       echo "<tr><td>".$it[0]."</td><td>".$it[1]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[5]."</td><td>".$it[6]."</td></tr>";
-}  
-echo "</table>";
+echo "<a href='index.php?category=核心系统'>核心系统</a>";
+echo "<a href='index.php?category=重要系统'>重要系统</a>";
+echo "<a href='index.php?category=一般系统'>一般系统</a>";
+echo "<a href='index.php?category=容灾'>容灾</a>";
+echo "<a href='index.php?category=准发布'>准发布</a>";
+echo "<a href='index.php?category=BC'>BC</a>";
 
 
-For($i=1;$i<=$pagenum;$i++){
-       $show=($i!=$page)?"<a href='index.php?page=".$i."'>$i</a>":"<b>$i</b>";
-       echo $show." ";
+If($category == "无"){
+    $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
+    echo "<table border=0 cellspacing=10 >";
+    echo  "<tr><th>ID</th><th>sys_domain</th>
+    <th>system</th><th>system_level</th></tr>";
+    While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
+        echo "<tr><td>".$it[0]."</td><td>".$it[1]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[5]."</td><td>".$it[6]."</td></tr>";
+    }  
+    echo "</table>";
+    
+    For($i=1;$i<=$pagenum;$i++){
+        $show=($i!=$page)?"<a href='index.php?page=".$i."'>$i</a>":"<b>$i</b>";
+        echo $show." ";
+    }
 }
+else {
+    $info=mysqli_query($con,"select * from `oracle` where sys_level like '%".$category."%' limit $offset,$num "); 
+    echo "<table border=0 cellspacing=10 >";
+    echo  "<tr><th>ID</th><th>sys_domain</th>
+    <th>system</th><th>db_belong</th></tr>";
+    While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
+        echo "<tr><td>".$it[0]."</td><td>".$it[1]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[5]."</td><td>".$it[7]."</td></tr>";
+    }  
+    echo "</table>";
+    
+    For($i=1;$i<=$pagenum;$i++){
+        $show=($i!=$page)?"<a href='index.php?page=".$i."'>$i</a>":"<b>$i</b>";
+        echo $show." ";
+    }
+    
+}
+
+
 /*显示分页信息，假如是当页则显示粗体的数字，其余的页数则为超连接，假如当前为第三页则显示如下
 1 2 3 4 5 6
 */
