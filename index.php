@@ -34,15 +34,14 @@ $offset=($page-1)*$num;
 //假如第一页则为(1-1)*10=0,第二页为(2-1)*10=10。(传入的页数-1) * 每页的数据 得到limit第一个参数的值 
 
 //输出系统分类
-echo "<div id='butt'>";
-echo "<input type='button' value='所有' onclick=\"javascript:window.location.href='index.php?category=所有';\">";
-echo "</div>";
-echo "<a href='index.php?category=核心系统'>核心系统</a>";
-echo "<a href='index.php?category=重要系统'>重要系统</a>";
-echo "<a href='index.php?category=一般系统'>一般系统</a>";
-echo "<a href='index.php?category=容灾'>容灾</a>";
-echo "<a href='index.php?category=准发布'>准发布</a>";
-echo "<a href='index.php?category=BC'>BC</a>";
+
+echo "<div id='butt'><input type='button' value='所有' onclick=\"javascript:window.location.href='index.php?category=所有';\"></div>";
+echo "<div id='butt'><input type='button' value='核心系统' onclick=\"javascript:window.location.href='index.php?category=核心系统';\"></div>";
+echo "<div id='butt'><input type='button' value='重要系统' onclick=\"javascript:window.location.href='index.php?category=重要系统';\"></div>";
+echo "<div id='butt'><input type='button' value='一般系统' onclick=\"javascript:window.location.href='index.php?category=一般系统';\"></div>";
+echo "<div id='butt'><input type='button' value='准发布' onclick=\"javascript:window.location.href='index.php?category=准发布';\"></div>";
+echo "<div id='butt'><input type='button' value='容灾' onclick=\"javascript:window.location.href='index.php?category=容灾';\"></div>";
+echo "<div id='butt'><input type='button' value='BC' onclick=\"javascript:window.location.href='index.php?category=BC';\"></div>";
 
 If($category == "所有"){
     $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
