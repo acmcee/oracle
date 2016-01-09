@@ -20,7 +20,7 @@ div#butt input {
 <?php
 $con = mysqli_connect( "192.168.56.102","root","root","oracle_list");
 $page=isset($_GET['page'])?intval($_GET['page']):1; 
-$category=isset($_GET['category'])?$_GET['category']:"无"; 
+$category=isset($_GET['category'])?$_GET['category']:"所有"; 
 //这句就是获取page=18中的page的值，假如不存在page，那么页数就是1。
 $num=30;         //每页显示10条数据
 if (!$con)
@@ -37,12 +37,12 @@ $offset=($page-1)*$num;
 //输出系统分类
 
 echo "<div id='butt'><input type='button' value='所有' onclick=\"javascript:window.location.href='index.php?category=所有';\">";
-echo "<div id='butt'><input type='button' value='核心系统' onclick=\"javascript:window.location.href='index.php?category=核心系统';\">";
-echo "<div id='butt'><input type='button' value='重要系统' onclick=\"javascript:window.location.href='index.php?category=重要系统';\">";
-echo "<div id='butt'><input type='button' value='一般系统' onclick=\"javascript:window.location.href='index.php?category=一般系统';\">";
-echo "<div id='butt'><input type='button' value='准发布' onclick=\"javascript:window.location.href='index.php?category=准发布';\">";
-echo "<div id='butt'><input type='button' value='容灾' onclick=\"javascript:window.location.href='index.php?category=容灾';\">";
-echo "<div id='butt'><input type='button' value='BC' onclick=\"javascript:window.location.href='index.php?category=BC';\"></div>";
+echo "<input type='button' value='核心系统' onclick=\"javascript:window.location.href='index.php?category=核心系统';\">";
+echo "<input type='button' value='重要系统' onclick=\"javascript:window.location.href='index.php?category=重要系统';\">";
+echo "<input type='button' value='一般系统' onclick=\"javascript:window.location.href='index.php?category=一般系统';\">";
+echo "<input type='button' value='准发布' onclick=\"javascript:window.location.href='index.php?category=准发布';\">";
+echo "<input type='button' value='容灾' onclick=\"javascript:window.location.href='index.php?category=容灾';\">";
+echo "<input type='button' value='BC' onclick=\"javascript:window.location.href='index.php?category=BC';\"></div>";
 echo "<br/>";
 
 If($category == "所有"){
