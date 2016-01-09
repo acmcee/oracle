@@ -92,6 +92,22 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
           $category="所有";
         }
        
+       if ($page=="help") {
+            
+            echo "<br>";
+            echo "<br>";
+            echo "<h1 style=\"text-align:center\">使用帮助</h1>";
+            echo "<div class=\"help\">该系统支持模糊查询！该系统支持模糊查询！该系统支持模糊查询！</div>";
+            echo "<br>";
+            echo "<div class=\"help\">可以输入数据库名，TNS，主机名，ip，域名的任意其中一个或多个进行查询，结果为交集。</div>";
+            echo "<br>";
+            echo "<div class=\"help\">TNS查询的结果为4A TNS和旧TNS的并集</div>";
+            echo "<br>";
+            echo "<div class=\"help\">IP查询的结果为IP和VIP的并集</div>";
+            
+            require("footer.php");
+            exit;
+        }
        
         if($dir == "all"){
         $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
@@ -101,6 +117,7 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
         
         if($page>$pagenum || $page == 0){
         echo "Error : Can Not Found The page .<br />";
+        require("footer.php");
         exit;
         }
         
@@ -129,6 +146,7 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
         
         if($page>$pagenum || $page == 0){
         echo "<div class =\"smile\"> :( no result </div>.<br />";
+        require("footer.php");
         exit;
         }
         echo "<hr>";
@@ -178,6 +196,7 @@ else {
     //获取总页数
     if($page>$pagenum || $page == 0){
         echo "<div class =\"smile\"> :( no result </div>.<br />";
+        require("footer.php");
         exit;
         }
     echo "<hr>";
@@ -205,8 +224,8 @@ else {
 mysqli_close($con);
 ?>
 <div>
-<div id="foot">
-<p>©CopyRight 2016-2016 example.com  All Rights Reserved. 测试也有版权，请尊重</p>
-</div>
+
+<?php require("footer.php");?>
+
 
 </body></html>
