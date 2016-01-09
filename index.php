@@ -16,7 +16,6 @@ div#butt input {
 #foot{
     margin: 0 auto;
     text-align: center;
-    
 }
 
 </style>
@@ -54,7 +53,7 @@ echo "<br/>";
 
 If($category == "所有"){
     $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
-    echo "<h1>oracle数据库主机总量是：".$total."</h1><br/>";
+    echo "<h1>oracle数据库主机总量是：".$total."</h1>";
     $pagenum=ceil($total/$num);      //获得总页数 pagenum
     
     If($page>$pagenum || $page == 0){
@@ -64,10 +63,10 @@ If($category == "所有"){
     
     $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
     echo "<table border=0 cellspacing=10 >";
-    echo  "<tr><th>ID</th><th>sys_domain</th>
-    <th>system</th><th>system_level</th></tr>";
+    echo  "<tr><th>ID</th><th>系统域</th>
+    <th>系统等级</th><th>数据库名</th></tr>";
     While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
-        echo "<tr><td>".$it[0]."</td><td>".$it[1]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[5]."</td><td>".$it[6]."</td></tr>";
+        echo "<tr><td>".$it[0]."</td><td>".$it[3]."</td><td>".$it[5]."</td><td>".$it[5]."</td><td>".$it[5]."</td><td>".$it[6]."</td></tr>";
     }  
     echo "</table>";
     
@@ -78,7 +77,7 @@ If($category == "所有"){
 }
 else {
     $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where sys_level like '%".$category."%'"));
-    echo "<h1>oracle".$category."数据库主机总量是：".$total."</h1><br />";
+    echo "<h1>oracle".$category."数据库主机总量是：".$total."</h1>";
     $pagenum=ceil($total/$num);      //获得总页数 pagenum
     
     If($page>$pagenum || $page == 0){
