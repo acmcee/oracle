@@ -123,7 +123,7 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
         echo "</div>";
     }
     else {
-        $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where sys_level like '%".$category."%'"));
+        $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where ifnull(sys_level,\"\") like '%".$category."%'"));
         echo "<h1>oracle".$category."数据库数量为：".$total."</h1>";
         $pagenum=ceil($total/$num);      //获得总页数 pagenum
         
@@ -132,7 +132,7 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
         exit;
         }
         echo "<hr>";
-        $info=mysqli_query($con,"select * from `oracle` where sys_level like '%".$category."%' limit $offset,$num "); 
+        $info=mysqli_query($con,"select * from `oracle` where ifnull(sys_level,\"\") like '%".$category."%' limit $offset,$num "); 
         echo "<table border=0 cellspacing=10 >";
         echo  "<tr><th>ID</th><th>系统域</th><th>数据库名</th><th>TNS(4A)</th><th>TNS(OLD)</th>
         <th>主机名</th><th>IP</th><th>VIP</th><th>域名</th></tr>";
@@ -152,10 +152,8 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
 }
 else {
     
-    $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where (`ip` like '%".$ip."%' or `vip` like '%".$ip."%') and 
-     hostname like '%".$host."%' and (tns like '%".$tns."%' or oldtns like '%".$tns."%') and `desc` like '%".$dbname."%' and domain like '%".$domain."%' ;"));
-    $info=mysqli_query($con,"select * from `oracle` where (`ip` like '%".$ip."%' or `vip` like '%".$ip."%') and 
-     hostname like '%".$host."%' and (tns like '%".$tns."%' or oldtns like '%".$tns."%') and `desc` like '%".$dbname."%' and domain like '%".$domain."%'limit $offset,$num;");
+    $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where (ifnull(`ip`,\"\") like '%".$ip."%' or ifnull(`vip`,\"\") like '%".$ip."%') and  ifnull(hostname,\"\") like '%".$host."%' and (ifnull(tns,\"\") like '%".$tns."%' or ifnull(oldtns,\"\") like '%".$tns."%') and ifnull(`desc`,\"\") like '%".$dbname."%' and ifnull(domain,\"\") like '%".$domain."%' ;"));
+    $info=mysqli_query($con,"select * from `oracle` where (ifnull(`ip`,\"\") like '%".$ip."%' or ifnull(`vip`,\"\") like '%".$ip."%') and  ifnull(hostname,\"\") like '%".$host."%' and (ifnull(tns,\"\") like '%".$tns."%' or ifnull(oldtns,\"\") like '%".$tns."%') and ifnull(`desc`,\"\") like '%".$dbname."%' and ifnull(domain,\"\") like '%".$domain."%' limit $offset,$num;");
      
     $nout="";
     if ($dbname!=""){
