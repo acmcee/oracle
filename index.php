@@ -16,6 +16,7 @@ div#butt input {
 </head>
 
 <body>
+<div>
 <?php
 $con = mysqli_connect( "192.168.56.102","root","root","oracle_list");
 $page=isset($_GET['page'])?intval($_GET['page']):1; 
@@ -101,5 +102,5 @@ else {
 */
 mysqli_close($con);
 ?>
-
+<div>
 </body></html>
