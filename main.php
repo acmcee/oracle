@@ -97,6 +97,8 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
             echo "<br>";
             echo "<br>";
             echo "<h1 style=\"text-align:center\">使用帮助</h1>";
+            echo "<div class=\"help\">本工具开发于2016年1月09日</div>";
+            echo "<br>";
             echo "<div class=\"help\">该系统支持模糊查询！该系统支持模糊查询！该系统支持模糊查询！</div>";
             echo "<br>";
             echo "<div class=\"help\">可以输入数据库名，TNS，主机名，IP，域名的任意其中一个或多个进行查询，结果为交集。</div>";
