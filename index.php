@@ -7,6 +7,7 @@
 <style type="text/css">
 div#butt input {
     margin: 10px 0 0 10px;
+    float:left;
     background: red;
     color: #fff;
     width: 150px;
