@@ -230,7 +230,4 @@ unset($domain);
 ?>
 <div>
 
-<?php require("footer.php");?>
-
-
 </body></html>
