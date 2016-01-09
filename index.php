@@ -26,7 +26,7 @@ If($page>$pagenum || $page == 0){
 $offset=($page-1)*$num; 
 //获取limit的第一个参数的值 offset ，
 //假如第一页则为(1-1)*10=0,第二页为(2-1)*10=10。(传入的页数-1) * 每页的数据 得到limit第一个参数的值
-if (mysqli_query('SET NAMES UTF8')){echo "UTF-8 set successful"};  
+if (mysqli_query('SET NAMES UTF8')){echo "UTF-8 set successful";}  
 $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
 While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
        echo $it[0]." ".$it[1]." ".$it[2]." ".$it[3]." ".$it[4]." ".$it[5]."<br />";
