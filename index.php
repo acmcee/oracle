@@ -3,7 +3,7 @@ $con = mysqli_connect( "192.168.56.102","root","root","oracle_list");
 $page=isset($_GET['page'])?intval($_GET['page']):1; 
 $category=isset($_GET['category'])?$_GET['category']:"无"; 
 //这句就是获取page=18中的page的值，假如不存在page，那么页数就是1。
-$num=10;         //每页显示10条数据
+$num=30;         //每页显示10条数据
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
@@ -21,7 +21,7 @@ $offset=($page-1)*$num;
  
 
 //输出系统分类
-echo "<a href='index.php?category=无'>所有</a>";
+echo "<a href='index.php?category=所有'>所有</a>";
 echo "<a href='index.php?category=核心系统'>核心系统</a>";
 echo "<a href='index.php?category=重要系统'>重要系统</a>";
 echo "<a href='index.php?category=一般系统'>一般系统</a>";
@@ -30,7 +30,7 @@ echo "<a href='index.php?category=准发布'>准发布</a>";
 echo "<a href='index.php?category=BC'>BC</a>";
 
 
-If($category == "无"){
+If($category == "所有"){
     $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
     echo "<h1>oracle数据库主机总量是：".$total."</h1><br />";
     $pagenum=ceil($total/$num);      //获得总页数 pagenum
@@ -56,7 +56,7 @@ If($category == "无"){
 }
 else {
     $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where sys_level like '%".$category."%'"));
-    echo "<h1>oracle数据库主机总量是：".$total."</h1><br />";
+    echo "<h1>oracle".$category."数据库主机总量是：".$total."</h1><br />";
     $pagenum=ceil($total/$num);      //获得总页数 pagenum
     
     If($page>$pagenum || $page == 0){
