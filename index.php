@@ -11,9 +11,9 @@ else
     
 }    
 
-$total=mysqli_num_rows(mysqli_query("select * from `table`"));
+$total=mysqli_num_rows(mysqli_query($con,"select * from `table`"));
 echo "total num is $total"
 
 
-
+mysqli_close($con);
 ?>
