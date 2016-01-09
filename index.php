@@ -29,7 +29,7 @@ $offset=($page-1)*$num;
 
 $info=mysqli_query($con,"select * from `table` limit $offset,$num ");   //获取相应页数所需要显示的数据
 While($it=mysqli_fetch_array($info,MYSQLI_ASSOC)){
-       echo $it['id']." "$it['name']."<br />";
+       echo $it['id']." ".$it['name']."<br />";
 }  
 
 
