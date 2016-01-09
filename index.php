@@ -1,5 +1,5 @@
 <?php
-$con = mysql_connect( "192.168.56.102","root", "root");
+$con = mysqli_connect( "192.168.56.102","root","root","oracle_list");
 
 if (!$con)
   {
