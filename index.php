@@ -1,4 +1,3 @@
-[php]
 <?php
 /*
 Author:默默
@@ -6,8 +5,8 @@ Date :2006-12-03
 */
 $page=isset($_GET['page'])?intval($_GET['page']):1;        //这句就是获取page=18中的page的值，假如不存在page，那么页数就是1。
 $num=10;         //每页显示10条数据
-$db=mysql_connect("host","name","pass");           //创建数据库连接
-$select=mysql_select_db("db",$db);                 //选择要操作的数据库
+$db=mysql_connect("192.168.56.102","root","root");           //创建数据库连接
+$select=mysql_select_db("oracle",$db);                 //选择要操作的数据库
 /*
 首先咱们要获取数据库中到底有多少数据，才能判断具体要分多少页，总页数 具体的公式就是
 总数据数 除以 每页显示的条数，有余进一 。
@@ -35,4 +34,3 @@ For($i=1;$i<=$pagenum;$i++){
 1 2 3 4 5 6
 */
 ?>
-   [/php]
