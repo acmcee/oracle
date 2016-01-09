@@ -5,11 +5,12 @@ $con = mysqli_connect(
  "root", /* The password to use 连接MySQL密码 */   
  "oracle_list");  /* The default database to query 连接数据库名称*/   
 
-if (!$con)
+if (mysqli_connect_errno($con))
   {
   die('Could not connect: ' . mysql_error());
   }
 
 // some code
+$conn->close();  
 
 ?>
