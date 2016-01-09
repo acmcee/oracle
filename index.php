@@ -11,7 +11,7 @@ else
     
 }    
 
-$total=mysql_num_rows(mysql_query("select * from `table`"));
+$total=mysqli_num_rows(mysqli_query("select * from `table`"));
 echo "total num is $total"
 
 
