@@ -66,9 +66,11 @@ else {
     $info=mysqli_query($con,"select * from `oracle` where sys_level like '%".$category."%' limit $offset,$num "); 
     echo "<table border=0 cellspacing=10 >";
     echo  "<tr><th>ID</th><th>sys_domain</th>
-    <th>system</th><th>db_belong</th></tr>";
+    <th>system</th><th>系统等级</th>
+    <th>数据库名</th> <th>TNS(4A)</th>
+    </tr>";
     While($it=mysqli_fetch_array($info,MYSQLI_NUM)){
-        echo "<tr><td>".$it[0]."</td><td>".$it[1]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[5]."</td><td>".$it[7]."</td></tr>";
+        echo "<tr><td>".$it[0]."</td><td>".$it[1]."</td><td>".$it[3]."</td><td>".$it[4]."</td><td>".$it[6]."</td><td>".$it[7]."</td></tr>";
     }  
     echo "</table>";
     
