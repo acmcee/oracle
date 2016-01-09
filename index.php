@@ -22,7 +22,6 @@ If($page>$pagenum || $page == 0){
 }
 If($category == "无"){
        Echo "category未设置 .<br />";
-       Exit;
 }
 
 $offset=($page-1)*$num; 
