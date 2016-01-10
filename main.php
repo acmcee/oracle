@@ -9,9 +9,11 @@
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
 if(!$isview)
     { 
+    echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"5;url=index.php\">";
+    echo "</head><body>";
     echo "<div class =\"smile\"> <div class=\"bigsmile\">:) </div>  DON'T OPEN THIS PAGE! <br />
     <div class=\"ssmile\">redirecting...</div></div> <br />";
-    echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"5;url=index.php\">";
+    echo "</body></html>";
     exit;
     }
 ?>
