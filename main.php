@@ -9,7 +9,11 @@
 </head>
 <body>
 <!-- 输出系统等级-->
-<?php echo "hello";?>
+<?php echo "hello";
+if(!$isview){
+    echo "dir";
+}
+?>
 <div class='butt'>
 <input type='button' value='所有' onclick="javascript:window.location.href='index.php?dir=all'">
 <input type='button' value='核心系统' onclick="javascript:window.location.href='index.php?dir=core'">
