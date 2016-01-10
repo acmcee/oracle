@@ -65,7 +65,7 @@ color:#746A6A;
     position: absolute;
     left: 49.9%;
     top: 49.9%;
-    margin-left: -300px;
+    margin-left: -160px;
     margin-top: 200px;
 }
 </style>  
