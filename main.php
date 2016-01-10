@@ -3,21 +3,17 @@
 <head>
 <title>oracle数据库列表</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-<?
-    echo "<meta name=\"Description\" content=\"oracle 列表\" />";    
-?>
 <link type="text/css" rel="stylesheet" href="style.css"/> 
 </head>
 <body>
 <!-- 输出系统等级-->
-<?php echo "hello";
+<?php 
 ini_set("error_reporting","E_ALL & ~E_NOTICE");
 if(!$isview){
     echo "<div class =\"smile\"> <div class=\"bigsmile\">:) </div>  DON'T OPEN THIS PAGE! <br />
     <div class=\"ssmile\">redirecting...</div></div> <br />";
     echo "dir";
+    header("location: index.php");
     exit;
 }
 ?>
