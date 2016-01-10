@@ -13,7 +13,7 @@ if(!$isview){
     echo "<div class =\"smile\"> <div class=\"bigsmile\">:) </div>  DON'T OPEN THIS PAGE! <br />
     <div class=\"ssmile\">redirecting...</div></div> <br />";
     echo "dir";
-    header("location: index.php");
+    header("refresh:2;url=index.php");
     exit;
 }
 ?>
