@@ -9,7 +9,7 @@
  ini_set("error_reporting","E_ALL & ~E_NOTICE");
 if(!$isview)
 {
-    echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"5;url=index.php\">";    
+    echo "aaaaaaaaaaaa";    
     }
 ?>
 <link type="text/css" rel="stylesheet" href="style.css"/> 
