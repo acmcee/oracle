@@ -180,8 +180,8 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
 }
 else {
     
-    $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where (ifnull(`ip`,\"\") like '%".$ip."%' or ifnull(`vip`,\"\") like '%".$ip."%') and  ifnull(hostname,\"\") like '%".$host."%' and (ifnull(tns,\"\") like '%".$tns."%' or ifnull(oldtns,\"\") like '%".$tns."%') and ifnull(`desc`,\"\") like '%".$dbname."%' and ifnull(domain,\"\") like '%".$domain."%' ;"));
-    $info=mysqli_query($con,"select * from `oracle` where (ifnull(`ip`,\"\") like '%".$ip."%' or ifnull(`vip`,\"\") like '%".$ip."%') and  ifnull(hostname,\"\") like '%".$host."%' and (ifnull(tns,\"\") like '%".$tns."%' or ifnull(oldtns,\"\") like '%".$tns."%') and ifnull(`desc`,\"\") like '%".$dbname."%' and ifnull(domain,\"\") like '%".$domain."%' limit $offset,$num;");
+    $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where (ifnull(`ip`,\"\") like '%".$ip."%' or ifnull(`vip`,\"\") like '%".$ip."%') and  ifnull(hostname,\"\") like '%".$host."%' and (ifnull(tns,\"\") like '%".$tns."%' or ifnull(oldtns,\"\") like '%".$tns."%') and (ifnull(`desc`,\"\") like '%".$dbname."%'  or ifnull(`system`,\"\") like '%".$dbname."%')and ifnull(domain,\"\") like '%".$domain."%' ;"));
+    $info=mysqli_query($con,"select * from `oracle` where (ifnull(`ip`,\"\") like '%".$ip."%' or ifnull(`vip`,\"\") like '%".$ip."%') and  ifnull(hostname,\"\") like '%".$host."%' and (ifnull(tns,\"\") like '%".$tns."%' or ifnull(oldtns,\"\") like '%".$tns."%') and (ifnull(`desc`,\"\") like '%".$dbname."%'   or ifnull(`system`,\"\") like '%".$dbname."%')and ifnull(domain,\"\") like '%".$domain."%' limit $offset,$num;");
      
     $nout="";
     if ($dbname!=""){
