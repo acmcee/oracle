@@ -10,9 +10,8 @@
 if(!$isview)
     { 
 echo "ddd";
-    /*echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"5;url=index.php\">";    */
+    
     } 
-
 ?>
 </head>
 <body>
