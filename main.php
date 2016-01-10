@@ -5,6 +5,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Description" content="oracle 列表" />
 <link type="text/css" rel="stylesheet" href="style.css"/> 
+<?
+ini_set("error_reporting","E_ALL & ~E_NOTICE");
+if(!$isview)
+    { 
+    echo "<div class =\"smile\"> <div class=\"bigsmile\">:) </div>  DON'T OPEN THIS PAGE! <br />
+    <div class=\"ssmile\">redirecting...</div></div> <br />";
+    echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"5;url=index.php\">";
+    exit;
+    }
+?>
 </head>
 <body>
 
@@ -42,7 +52,8 @@
 </div>
 <div>
 <?php
-$config=include 'config.php';
+if ($_SERVER['SERVER_NAME'] =="localhost"){$config=include 'config1.php';}
+else {$config=include 'config2.php';}
 $con = mysqli_connect( $config['host'],$config['username'],$config['password'],$config['dbname']);
 $page=isset($_GET['page'])?intval($_GET['page']):1; 
 $dir=isset($_GET['dir'])?$_GET['dir']:"all"; 
@@ -58,7 +69,7 @@ if (!$con)
   die('Could not connect: ' . mysql_error());
   }
    
-if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> :( DON'T SUPPORT CHINESE! </div>.<br />";exit;} 
+if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> <div class=\"bigsmile\">:( </div> DON'T SUPPORT CHINESE! </div>.<br />";exit;} 
 
 
 $offset=($page-1)*$num; 
@@ -148,7 +159,7 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
         $pagenum=ceil($total/$num);      //获得总页数 pagenum
         
         if($page>$pagenum || $page == 0){
-        echo "<div class =\"smile\"> :( no result </div>.<br />";
+        echo "<div class =\"smile\"> <div class=\"bigsmile\">:( </div> no result </div>.<br />";
         require("footer.php");
         exit;
         }
@@ -198,7 +209,7 @@ else {
     $pagenum=ceil($total/$num); 
     //获取总页数
     if($page>$pagenum || $page == 0){
-        echo "<div class =\"smile\"> :( no result </div>.<br />";
+        echo "<div class =\"smile\"> <div class=\"bigsmile\">:( </div> no result </div>.<br />";
         require("footer.php");
         exit;
         }

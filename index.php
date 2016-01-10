@@ -74,11 +74,13 @@ color:#746A6A;
 <form action="" method="post" style="margin:0px;">输入查看密码  
 <input type="password" name="pwd" /> <input type="submit" value="查看" />  
 </form>  
+
 <?php echo $p; ?>  
 </div>  
 </div>  
 <?php  
-} ?>  
+} 
+?>  
 
 <?php require("footer.php");?>
 
