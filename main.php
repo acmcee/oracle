@@ -52,8 +52,8 @@ if(!$isview)
 </div>
 <div>
 <?php
-if ($_SERVER['SERVER_NAME'] =="localhost"){$config=include 'config1.php';}
-else {$config=include 'config2.php';}
+if ($_SERVER['SERVER_NAME'] =="www.ourwll.com"){$config=include 'config2.php';}
+else {$config=include 'config1.php';}
 $con = mysqli_connect( $config['host'],$config['username'],$config['password'],$config['dbname']);
 $page=isset($_GET['page'])?intval($_GET['page']):1; 
 $dir=isset($_GET['dir'])?$_GET['dir']:"all"; 
