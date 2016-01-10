@@ -10,16 +10,19 @@ ini_set("error_reporting","E_ALL & ~E_NOTICE");
 if(!$isview)
     { 
     echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"5;url=index.php\">";
-    echo "</head><body>";
-    echo "<div class =\"smile\"> <div class=\"bigsmile\">:) </div>  DON'T OPEN THIS PAGE! <br />
-    <div class=\"ssmile\">redirecting...</div></div> <br />";
-    echo "</body></html>";
-    exit;
+    
     }
 ?>
 </head>
 <body>
-
+<?
+ini_set("error_reporting","E_ALL & ~E_NOTICE");
+if(!$isview){
+    echo "<div class =\"smile\"> <div class=\"bigsmile\">:) </div>  DON'T OPEN THIS PAGE! <br />
+    <div class=\"ssmile\">redirecting...</div></div> <br />";
+    echo "</body></html>";
+    exit;}
+?>
 <!-- 输出系统等级-->
 
 <div class='butt'>
