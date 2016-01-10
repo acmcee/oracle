@@ -5,7 +5,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Description" content="oracle 列表" />
 <link type="text/css" rel="stylesheet" href="style.css"/> 
-
+<?
+ ini_set("error_reporting","E_ALL & ~E_NOTICE");
+if(!$isview)
+    { 
+    echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"5;url=index.php\">";
+    
+    } 
+    ECHO "HEAD";
+?>
 </head>
 <body>
 <!-- 输出系统等级-->
