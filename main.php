@@ -10,8 +10,9 @@
 <body>
 <!-- 输出系统等级-->
 <?php echo "hello";
+ini_set("error_reporting","E_ALL & ~E_NOTICE");
 if(!$isview){
-    ini_set("error_reporting","E_ALL & ~E_NOTICE");
+    
     echo "dir";
 }
 ?>
