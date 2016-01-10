@@ -97,7 +97,7 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
           $category="BC";
           break;
         default:
-          $category="所有";
+          $category="";
         }
        
        if ($page=="help") {
@@ -126,7 +126,7 @@ if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
         $pagenum=ceil($total/$num);      //获得总页数 pagenum
         
         if($page>$pagenum || $page == 0){
-        echo "Error : Can Not Found The page .<br />";
+        echo "<div class =\"smile\"> <div class=\"bigsmile\">:( </div> no result </div>.<br />";
         require("footer.php");
         exit;
         }
