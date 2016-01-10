@@ -31,6 +31,8 @@ div.butt input {
 #foot{
     margin: 0 auto;
     text-align: center;
+    font-size:12px;
+    font-family:"Open Sans", "Helvetica", "Arial", "Hiragino Sans GB", "Noto Sans CJK SC", "Heiti SC", "Microsoft YaHei", "WenQuanYi Microhei", serif；
 }
 #chaxun {
     margin: 10px 0 0 10px;
@@ -55,4 +57,6 @@ div.butt input {
 td {
     word-break:break-all; 
     word-wrap:break-all;
+    font-size:13px;
+    font-family:"Open Sans", "Helvetica", "Arial", "Hiragino Sans GB", "Noto Sans CJK SC", "Heiti SC", "Microsoft YaHei", "WenQuanYi Microhei", serif；
 }

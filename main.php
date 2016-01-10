@@ -62,7 +62,7 @@ $domain=isset($_GET['domain'])?$_GET['domain']:"";
 $num=30;         //每页显示30条数据
 if (!$con)
   {
-  die('Could not connect: ' . mysql_error());
+  die('Could not connect to database: ' . mysql_error());
   }
    
 if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> <div class=\"bigsmile\">:( </div> DON'T SUPPORT CHINESE! </div>.<br />";exit;} 
