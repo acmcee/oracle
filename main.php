@@ -9,10 +9,10 @@
  ini_set("error_reporting","E_ALL & ~E_NOTICE");
 if(!$isview)
     { 
-    echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"5;url=index.php\">";
-    
+echo "ddd";
+    /*echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"5;url=index.php\">";    */
     } 
-    ECHO "HEAD";
+
 ?>
 </head>
 <body>
