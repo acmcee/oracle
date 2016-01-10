@@ -3,14 +3,10 @@
 <head>
 <title>oracle数据库列表</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Description" content="oracle 列表" />
+
 
 <?
- ini_set("error_reporting","E_ALL & ~E_NOTICE");
-if(!$isview)
-{
-    echo "aaaaaaaaaaaa";    
-    }
+    echo "<meta name=\"Description\" content=\"oracle 列表\" />";    
 ?>
 <link type="text/css" rel="stylesheet" href="style.css"/> 
 </head>
