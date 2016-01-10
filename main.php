@@ -42,7 +42,8 @@
 </div>
 <div>
 <?php
-$con = mysqli_connect( "192.168.56.102","root","root","oracle_list");
+$config=include 'config.php';
+$con = mysqli_connect( $config['host'],$config['username'],$config['password'],$config['dbname']);
 $page=isset($_GET['page'])?intval($_GET['page']):1; 
 $dir=isset($_GET['dir'])?$_GET['dir']:"all"; 
 $ip=isset($_GET['ip'])?$_GET['ip']:""; 
@@ -229,6 +230,7 @@ unset($tns);
 unset($host);
 unset($ip);
 unset($domain);
+unset($config);
 ?>
 <div>
 
