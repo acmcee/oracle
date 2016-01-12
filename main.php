@@ -202,9 +202,18 @@ if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> <div clas
     if ($domain!=""){
         $nout=$nout."，域名为".$domain;
     }
-    
+    if(isset($_GET['search_db'])) {//如果搜索数据库设置了值，则搜索数据库信息
     echo "<h1> ".substr($nout,3)."的查询结果数为:".$total."</h1>";
-    
+    }else {
+        if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") && ($domain=="") ){
+            echo "<h1> 数据库联系人的结果数为:".$total."</h1>";        
+        }
+        else {
+        echo "<h1> ".substr($nout,3)."的联系人查询结果数为:".$total."</h1>";    
+        }
+    }
+
+
     $pagenum=ceil($total/$num); 
     //获取总页数
     if($page>$pagenum || $page == 0){
