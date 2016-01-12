@@ -43,7 +43,8 @@
         &nbsp
         域名: 
         <input type="domain" name="domain" style="width:80px"/>
-        <input id="chaxun" type='submit' value='查询'>
+        <input id="chaxun" type='submit' name='search_db' value='查询'>
+        <input id="chaxun" type='submit' name='search_con' value='联系人'>
     </form>
 </div>
 <div>
@@ -58,6 +59,8 @@
     $tns=isset($_GET['tns'])?$_GET['tns']:""; 
     $dbname=isset($_GET['dbname'])?$_GET['dbname']:""; 
     $domain=isset($_GET['domain'])?$_GET['domain']:""; 
+
+    
 //这句就是获取page中的值，假如不存在page，那么页数就是1。
 $num=30;         //每页显示30条数据
 if (!$con)
@@ -71,10 +74,10 @@ if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> <div clas
     $offset=($page-1)*$num; 
 //获取limit的第一个参数的值 offset ，
 //假如第一页则为(1-1)*10=0,第二页为(2-1)*10=10。(传入的页数-1) * 每页的数据 得到limit第一个参数的值 
-    if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") &&($domain=="")) {
-     
-     switch ($dir)
-     {
+    if (($ip=="") && ($host=="") &&($tns=="") && ($dbname=="") && ($domain=="") && ($_GET['search_con']=="")) {
+
+       switch ($dir)
+       {
         case "all":
         $category="所有";
         break;
@@ -99,9 +102,9 @@ if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> <div clas
         default:
         $category="";
     }
-    
+
     if ($page=="help") {
-        
+
         echo "<br>";
         echo "<br>";
         echo "<h1 style=\"text-align:center\">使用帮助</h1>";
@@ -114,11 +117,11 @@ if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> <div clas
         echo "<div class=\"help\">TNS查询的结果为4A TNS和旧TNS的并集</div>";
         echo "<br>";
         echo "<div class=\"help\">IP查询的结果为IP和VIP的并集</div>";
-        
+
         require("footer.php");
         exit;
     }
-    
+
     if($dir == "all"){
         $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
         echo "<h1>oracle数据库数量为：".$total."</h1>";
@@ -130,7 +133,7 @@ if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> <div clas
                 require("footer.php");
                 exit;
             }
-            
+
         $info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
         echo "<hr>";
         echo "<table border=0 cellspacing=10 >";
@@ -178,16 +181,16 @@ if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> <div clas
             echo "</div>";
         }
     }
-    else {
-        
+    else{
+
         $total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where (ifnull(`ip`,\"\") like '%".$ip."%' or ifnull(`vip`,\"\") like '%".$ip."%') and  ifnull(hostname,\"\") like '%".$host."%' and (ifnull(tns,\"\") like '%".$tns."%' or ifnull(oldtns,\"\") like '%".$tns."%') and (ifnull(`desc`,\"\") like '%".$dbname."%'  or ifnull(`system`,\"\") like '%".$dbname."%')and ifnull(domain,\"\") like '%".$domain."%' ;"));
         $info=mysqli_query($con,"select * from `oracle` where (ifnull(`ip`,\"\") like '%".$ip."%' or ifnull(`vip`,\"\") like '%".$ip."%') and  ifnull(hostname,\"\") like '%".$host."%' and (ifnull(tns,\"\") like '%".$tns."%' or ifnull(oldtns,\"\") like '%".$tns."%') and (ifnull(`desc`,\"\") like '%".$dbname."%'   or ifnull(`system`,\"\") like '%".$dbname."%')and ifnull(domain,\"\") like '%".$domain."%' limit $offset,$num;");
-        
+
         $nout="";
-        if ($dbname!=""){
-           $nout="，数据库名为".$dbname;
-       }
-       if ($tns!=""){
+    if ($dbname!=""){
+         $nout="，数据库名为".$dbname;
+    }
+     if ($tns!=""){
         $nout=$nout."，TNS为".$tns;
     }
     if ($host!=""){
@@ -210,13 +213,20 @@ if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> <div clas
             exit;
         }
         echo "<hr>";
-
         echo "<table border=0 cellspacing=10 >";
+        if(isset($_GET['search_db'])) {//如果搜索数据库设置了值，则搜索数据库信息
         echo  "<tr><th>ID</th><th>系统域</th><th>数据库名</th><th>TNS(4A)</th><th>TNS(OLD)</th>
         <th>主机名</th><th>IP</th><th>VIP</th><th>域名</th></tr>";
         While($it=mysqli_fetch_array($info,MYSQLI_ASSOC)){
             echo "<tr><td width=\"40\">".$it["ID"]."</td><td  width=\"68\">".$it["sys_domain"]."</td><td  width=\"160\">".$it["desc"]."</td><td  width=\"190\">".$it["TNS"]."</td><td  width=\"120\">".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
-        }  
+            }  
+        }else {//搜索联系人信息返回
+            echo  "<tr><th>ID</th><th>数据库名</th><th>TNS(4A)</th><th>局方</th>
+            <th>局方电话</th><th>乙方</th><th>乙方电话</th></tr>";
+            While($it=mysqli_fetch_array($info,MYSQLI_ASSOC)){
+            echo "<tr><td width=\"40\">".$it["ID"]."</td><td  width=\"160\">".$it["desc"]."</td><td  width=\"190\">".$it["TNS"]."</td><td  width=\"120\">".$it["jufang"]."</td><td>".$it["jufang_tel"]."</td><td>".$it["yifang"]."</td><td>".$it["yifang_tel"]."</td></tr>";
+            }
+        }
         echo "</table>";
         echo "<hr>";
         echo "<div id= \"con\">";
@@ -226,7 +236,7 @@ if (!mysqli_query($con,'SET NAMES UTF8')){echo "<div class =\"smile\"> <div clas
             echo $show."</div>";
         }
         echo "</div>";
-        
+
     }
 
 
