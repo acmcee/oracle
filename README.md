@@ -1,6 +1,6 @@
 系统说明
 =====
-		to serarch or show an oracle database list 
+		To serarch and show an oracle database list or the contracer
 		Don't try to do something to spread with others
 
 
@@ -13,7 +13,7 @@
 =====
 2016-01-09:
 ------
-		1.一版发布！支持模糊查询。
+		1.第一版发布！支持模糊查询。
 		2.以输入数据库名，TNS，主机名，IP，域名的任意其中一个或多个进行查询，结果为交集。
 	
 2016-02-09:
