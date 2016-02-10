@@ -1,6 +1,6 @@
 系统说明
 =====
-		To serarch and show an oracle database list or the contracer
+		To serarch and show an oracle database list or the contacter
 		Don't try to do something to spread with others
 
 
