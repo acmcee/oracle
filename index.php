@@ -33,7 +33,7 @@
     $con = mysqli_connect( $config['host'],$config['username'],$config['password'],$config['dbname']);
     $page=isset($_GET['page'])?$_GET['page']:1; 
     $dir=isset($_GET['dir'])?$_GET['dir']:"all"; 
-	$keyword=isset($_GET['keyword'])?$_GET['keyword']:""; 
+	$keyword=isset($_GET['keyword'])?trim($_GET['keyword']):""; 
 
     
 	//这句就是获取page中的值，假如不存在page，那么页数就是1。
