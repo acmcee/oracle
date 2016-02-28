@@ -72,9 +72,28 @@ td {
     font-size:13px;
     font-family:"Open Sans", "Helvetica", "Arial", "Hiragino Sans GB", "Noto Sans CJK SC", "Heiti SC", "Microsoft YaHei", "WenQuanYi Microhei", serif；
 }
-#tns,#db_name,#hostname,#ip,#domain {
-	 width: 120px;
-}
+
 th td {
 	    text-align: center;
+}
+#gotoadmin {
+    margin-right: 10px;
+    margin-top: 15px;
+    float: right;
+}
+.form-left {
+    display: inline-block;
+    margin-top: 10px;
+}
+#keyword {
+    display: inline-block;
+    width: 300px; 
+}
+#update {
+    margin-top: 20px;
+}
+#updateResult,#searchResult {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

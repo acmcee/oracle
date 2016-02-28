@@ -13,11 +13,14 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 		<link type="text/css" rel="stylesheet" href="./css/style.css"/> 
+		<!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+        <script src="./js/jquery-2.2.0.min.js"></script>
+        <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+        <script src="./js/bootstrap.min.js"></script> 
     </head>
     <body>
     <?php 
-        ini_set("error_reporting","E_ALL & ~E_NOTICE");
-		
+        ini_set("error_reporting","E_ALL & ~E_NOTICE");	
 		if(!$isview){
             echo "<div class =\"smile\"> <div class=\"bigsmile\">:) </div>  DON'T OPEN THIS PAGE! <br />
 			<div class=\"ssmile\">redirecting...</div></div> <br />";
@@ -37,9 +40,9 @@
     <?php
     $config=include './body/config.php';
     $con = mysqli_connect( $config['host'],$config['username'],$config['password'],$config['dbname']);
-    $page=isset($_GET['page'])?intval($_GET['page']):1; 
+    $page=isset($_GET['page'])?$_GET['page']:1; 
     $dir=isset($_GET['dir'])?$_GET['dir']:"all"; 
-	$keyword=isset($_GET['keyword'])?$_GET['keyword']:""; 
+	$keyword=isset($_GET['keyword'])?trim($_GET['keyword']):""; 
 
     
 	//这句就是获取page中的值，假如不存在page，那么页数就是1。
@@ -56,7 +59,12 @@
 //获取limit的第一个参数的值 offset ，
 //假如第一页则为(1-1)*10=0,第二页为(2-1)*10=10。(传入的页数-1) * 每页的数据 得到limit第一个参数的值 
 if ($page=="help")  {//判断是不是help页面，是则输出help，否则进行判断数据库的输出。
+	//echo "erbia ";
+	//echo $page ;
 	require("./body/help.html");
+}elseif($page=="admin") {
+	//echo "admin";
+	require("./admin/index.php");
 }
 else {
 	if (($keyword=="") && ($_GET['search_con']=="")) { //首先判断无关键词设置且搜索联系人未设置，如果设置的话直接搜索联系人。
@@ -89,7 +97,7 @@ else {
 	
 		if($dir == "all"){	//如果dir是all，那么查询所有的。
 			$total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
-			echo "<h1>oracle数据库数量为：".$total."</h1>";
+			echo "<h1>Oracle数据库实例数量为：".$total."</h1>";
 			
 			$pagenum=ceil($total/$num);      //获得总页数 pagenum
 			
@@ -129,7 +137,7 @@ else {
 		
 		else { //如果dir不是all，那么查询相应分类的数据信息。 （dir为设置首页进去进入此逻辑）
 			$total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where ifnull(sys_level,\"\") like '%".$category."%'"));
-			echo "<h1>oracle".$category."数据库数量为：".$total."</h1>";
+			echo "<h1>Oracle".$category."数据库实例数量为：".$total."</h1>";
 			$pagenum=ceil($total/$num);      //获得总页数 pagenum
 			
 			if($page>$pagenum || $page == 0){
@@ -246,10 +254,7 @@ else {
     unset($config);
     ?>
     <div>
-		<!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
-        <script src="./js/jquery-2.2.0.min.js"></script>
-        <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
-        <script src="./js/bootstrap.min.js"></script> 
+
 </body>
     <?php include ("./body/footer.php");?>
 </html>
