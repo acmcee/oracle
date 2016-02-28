@@ -78,7 +78,7 @@ th td {
 }
 #gotoadmin {
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 15px;
     float: right;
 }
 .form-left {
@@ -91,4 +91,9 @@ th td {
 }
 #update {
     margin-top: 20px;
+}
+#updateResult,#searchResult {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

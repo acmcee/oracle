@@ -2,7 +2,7 @@ $(document).ready(function(){
         $("#searchNumber").click(function(){
             $.ajax({
                 type:"GET",
-                url:"service.php?keyword="+$("#keyword").val(),
+                url:"./admin/service.php?keyword="+$("#keyword").val(),
                 dataType:"json",
                 success:function(data){
                     if (data.success) {
@@ -35,7 +35,7 @@ $(document).ready(function(){
         $("#update").click(function(){
             $.ajax({
                 type:"POST",
-                url:"update.php",
+                url:"./admin/update.php",
                 dataType:"json",
                 data:{
                     DBID:$("#DBID").val(),

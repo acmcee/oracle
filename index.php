@@ -31,7 +31,7 @@
     <?php
     $config=include './body/config.php';
     $con = mysqli_connect( $config['host'],$config['username'],$config['password'],$config['dbname']);
-    $page=isset($_GET['page'])?intval($_GET['page']):1; 
+    $page=isset($_GET['page'])?$_GET['page']:1; 
     $dir=isset($_GET['dir'])?$_GET['dir']:"all"; 
 	$keyword=isset($_GET['keyword'])?$_GET['keyword']:""; 
 
@@ -50,7 +50,12 @@
 //获取limit的第一个参数的值 offset ，
 //假如第一页则为(1-1)*10=0,第二页为(2-1)*10=10。(传入的页数-1) * 每页的数据 得到limit第一个参数的值 
 if ($page=="help")  {//判断是不是help页面，是则输出help，否则进行判断数据库的输出。
+	//echo "erbia ";
+	//echo $page ;
 	require("./body/help.html");
+}elseif($page=="admin") {
+	//echo "admin";
+	require("./admin/index.php");
 }
 else {
 	if (($keyword=="") && ($_GET['search_con']=="")) { //首先判断无关键词设置且搜索联系人未设置，如果设置的话直接搜索联系人。

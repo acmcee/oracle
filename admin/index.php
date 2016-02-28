@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Demo Staff</title>
 
-    <link href="./../css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <link type="text/css" rel="stylesheet" href="./../css/style.css"/> 
+        <link type="text/css" rel="stylesheet" href="./css/style.css"/> 
     </head>
     <body>
 
         <?php 
         ini_set("error_reporting","E_ALL & ~E_NOTICE");
+        ?>
+        <?php
+            //require("./../body/navbar.html");
         ?>
 
         <div class="container">
@@ -26,7 +29,7 @@
                 <label for="keyword">Database ID</label>
                 <input type="text" class="form-control" id="keyword" placeholder="Database ID">
             </div>
-            <button  class="btn btn-default" id="searchNumber">Search</button>
+            <button class="btn btn-default" id="searchNumber">Search</button>
             <p id="searchResult"></p>
             <div class="form-left">
                 <label for="DBID">Database ID</label>
@@ -77,11 +80,11 @@
 
 
 <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
-<script src="./../js/jquery-2.2.0.min.js"></script>
+<script src="./js/jquery-2.2.0.min.js"></script>
 <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
-<script src="./../js/bootstrap.min.js"></script> 
+<script src="./js/bootstrap.min.js"></script> 
 <!-- 包含自己的js脚本-->
-<script src="./../js/my.js"></script> 
+<script src="./js/my.js"></script> 
 
 
 </body>

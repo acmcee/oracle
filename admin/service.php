@@ -4,14 +4,14 @@ ini_set("error_reporting","E_ALL & ~E_NOTICE");
 include './../body/connmysql.php';
 $keyword=$_GET["keyword"];
 if (!isset($keyword) ||empty($keyword)) {
-    $search_result = '{"success":"false","errormes":"parameter is wrong!"}';
+    $search_result = '{"success":"false","errormes":"Please Input DB ID First"}';
     echo $search_result;
 }
 else {
     $sql="select * from `oracle` where id='".$keyword."'";
     $result=mysqli_query($con,$sql);
     if (mysqli_num_rows($result)==0){
-        $search_result = '{"success":"false","errormes":"cant\'t find this Database ID! Please Check! "}';
+        $search_result = '{"success":"false","errormes":"Cant\'t find this Database ID! Please Check! "}';
         echo $search_result;
     }else {
         While($it=mysqli_fetch_array($result,MYSQLI_ASSOC)){
