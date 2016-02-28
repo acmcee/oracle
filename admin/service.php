@@ -15,20 +15,7 @@ else {
         echo $search_result;
     }else {
         While($it=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-            $search_result = '{
-                "success": "true",
-                "errormes":"",
-                "DBID": "'.$it["ID"].'",
-                "sys_domain": "'.$it["sys_domain"].'",
-                "sys_level": "'.$it["sys_level"].'",
-                "desc": "'.$it["desc"].'",
-                "TNS": "'.$it["TNS"].'",
-                "OLDTNS": "'.$it["OLDTNS"].'",
-                "hostname": "'.$it["hostname"].'",
-                "ip": "'.$it["ip"].'",
-                "vip": "'.$it["vip"].'",
-                "domain": "'.$it["domain"].'"
-            }';
+            $search_result = '{"success": "true","errormes":"","DBID": "'.$it["ID"].'","sys_domain": "'.$it["sys_domain"].'","sys_level": "'.$it["sys_level"].'","desc": "'.$it["desc"].'","TNS": "'.$it["TNS"].'","OLDTNS": "'.$it["OLDTNS"].'","hostname": "'.$it["hostname"].'","ip": "'.$it["ip"].'","vip": "'.$it["vip"].'","domain": "'.$it["domain"].'"}';
             echo $search_result;
         }
     }
