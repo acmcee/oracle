@@ -92,7 +92,7 @@ else {
 	
 		if($dir == "all"){	//如果dir是all，那么查询所有的。
 			$total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
-			echo "<h1>oracle数据库实例数量为：".$total."</h1>";
+			echo "<h1>Oracle数据库实例数量为：".$total."</h1>";
 			
 			$pagenum=ceil($total/$num);      //获得总页数 pagenum
 			
@@ -132,7 +132,7 @@ else {
 		
 		else { //如果dir不是all，那么查询相应分类的数据信息。 （dir为设置首页进去进入此逻辑）
 			$total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where ifnull(sys_level,\"\") like '%".$category."%'"));
-			echo "<h1>oracle".$category."数据库实例数量为：".$total."</h1>";
+			echo "<h1>Oracle".$category."数据库实例数量为：".$total."</h1>";
 			$pagenum=ceil($total/$num);      //获得总页数 pagenum
 			
 			if($page>$pagenum || $page == 0){

@@ -1,11 +1,11 @@
 $(document).ready(function(){
-        $("#searchNumber").click(function(){
-            $.ajax({
-                type:"GET",
-                url:"./admin/service.php?keyword="+$("#keyword").val(),
-                dataType:"json",
-                success:function(data){
-                    if (data.success) {
+    $("#searchNumber").click(function(){
+        $.ajax({
+            type:"GET",
+            url:"./admin/service.php?keyword="+$("#keyword").val(),
+            dataType:"json",
+            success:function(data){
+                if (data.success) {
                         //alert(data.errormes);
                         $("#searchResult").html(data.errormes);
                         $("#updateResult").html("");
@@ -28,29 +28,29 @@ $(document).ready(function(){
                     alert("error occur "+ jqXHR.status);
                 }
             });
-        });
-    });
- 
-    $(document).ready(function(){
-        $("#update").click(function(){
-            $.ajax({
-                type:"POST",
-                url:"./admin/update.php",
-                dataType:"json",
-                data:{
-                    DBID:$("#DBID").val(),
-                    sys_domain:$("#sys_domain").val(),
-                    sys_level:$("#sys_level").val(),
-                    desc:$("#desc").val(),
-                    TNS:$("#TNS").val(),
-                    OLDTNS:$("#OLDTNS").val(),
-                    hostname:$("#hostname").val(),
-                    ip:$("#ip").val(),
-                    vip:$("#vip").val(),
-                    domain:$("#domain").val(),
-                },
-                success:function(data){
-                    if (data.success) {
+});
+});
+
+$(document).ready(function(){
+    $("#update").click(function(){
+        $.ajax({
+            type:"POST",
+            url:"./admin/update.php",
+            dataType:"json",
+            data:{
+                DBID:$("#DBID").val(),
+                sys_domain:$("#sys_domain").val(),
+                sys_level:$("#sys_level").val(),
+                desc:$("#desc").val(),
+                TNS:$("#TNS").val(),
+                OLDTNS:$("#OLDTNS").val(),
+                hostname:$("#hostname").val(),
+                ip:$("#ip").val(),
+                vip:$("#vip").val(),
+                domain:$("#domain").val(),
+            },
+            success:function(data){
+                if (data.success) {
                         //alert(data.errormes);
                         $("#updateResult").html(data.errormes);
                         $("#searchResult").html("");
@@ -63,5 +63,5 @@ $(document).ready(function(){
                     alert("error2 occur "+ jqXHR.status);
                 }
             });
-        });
-    });
+});
+});
