@@ -13,6 +13,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 		<link type="text/css" rel="stylesheet" href="./css/style.css"/> 
+		<!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+        <script src="./js/jquery-2.2.0.min.js"></script>
+        <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+        <script src="./js/bootstrap.min.js"></script> 
     </head>
     <body>
     <?php 
@@ -88,7 +92,7 @@ else {
 	
 		if($dir == "all"){	//如果dir是all，那么查询所有的。
 			$total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle`"));
-			echo "<h1>oracle数据库数量为：".$total."</h1>";
+			echo "<h1>oracle数据库实例数量为：".$total."</h1>";
 			
 			$pagenum=ceil($total/$num);      //获得总页数 pagenum
 			
@@ -128,7 +132,7 @@ else {
 		
 		else { //如果dir不是all，那么查询相应分类的数据信息。 （dir为设置首页进去进入此逻辑）
 			$total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where ifnull(sys_level,\"\") like '%".$category."%'"));
-			echo "<h1>oracle".$category."数据库数量为：".$total."</h1>";
+			echo "<h1>oracle".$category."数据库实例数量为：".$total."</h1>";
 			$pagenum=ceil($total/$num);      //获得总页数 pagenum
 			
 			if($page>$pagenum || $page == 0){
@@ -245,10 +249,7 @@ else {
     unset($config);
     ?>
     <div>
-		<!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
-        <script src="./js/jquery-2.2.0.min.js"></script>
-        <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
-        <script src="./js/bootstrap.min.js"></script> 
+
 </body>
     <?php include ("./body/footer.php");?>
 </html>
