@@ -53,7 +53,12 @@ ini_set("error_reporting","E_ALL & ~E_NOTICE");
     </div>
     <div >
         <button  class="btn btn-default" id="update">Update</button>
+        <button  class="btn btn-default" id="insert">Insert</button>
+        <button  class="btn btn-default" id="delete">Delete</button>
+    </div>
+    <div >
         <p id="updateResult"></p>
+        
     </div>
 </div>
 
