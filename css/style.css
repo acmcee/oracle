@@ -89,8 +89,9 @@ th td {
     display: inline-block;
     width: 300px; 
 }
-#update {
+#update,#insert,#delete {
     margin-top: 20px;
+    width: 85px;
 }
 #updateResult,#searchResult {
     color: red;

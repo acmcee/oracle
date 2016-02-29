@@ -9,6 +9,7 @@ $(document).ready(function(){
                         //alert(data.errormes);
                         $("#searchResult").html(data.errormes);
                         $("#updateResult").html("");
+                        
                         $("#DBID").val(data.DBID);
                         $("#sys_domain").val(data.sys_domain);
                         $("#sys_level").val(data.sys_level);
@@ -22,6 +23,7 @@ $(document).ready(function(){
                     }else {
                         $("#searchResult").html(data.errormes);
                         $("#updateResult").html("");
+                        
                     }
                 },
                 error:function(jqXHR){
@@ -54,9 +56,77 @@ $(document).ready(function(){
                         //alert(data.errormes);
                         $("#updateResult").html(data.errormes);
                         $("#searchResult").html("");
+                       
                     }else {
                         $("#updateResult").html("error occurs:"+data.errormes+"succ:"+data.success);
                         $("#searchResult").html("");
+                     
+                    }
+                },
+                error:function(jqXHR){
+                    alert("error2 occur "+ jqXHR.status);
+                }
+            });
+});
+});
+
+
+$(document).ready(function(){
+    $("#insert").click(function(){
+        $.ajax({
+            type:"POST",
+            url:"./admin/insert.php",
+            dataType:"json",
+            data:{
+                DBID:$("#DBID").val(),
+                sys_domain:$("#sys_domain").val(),
+                sys_level:$("#sys_level").val(),
+                desc:$("#desc").val(),
+                TNS:$("#TNS").val(),
+                OLDTNS:$("#OLDTNS").val(),
+                hostname:$("#hostname").val(),
+                ip:$("#ip").val(),
+                vip:$("#vip").val(),
+                domain:$("#domain").val(),
+            },
+            success:function(data){
+                if (data.success) {
+                        //alert(data.errormes);
+                        $("#updateResult").html(data.errormes);
+                        $("#searchResult").html("");
+                        
+                    }else {
+                        $("#updateResult").html("error occurs:"+data.errormes+"succ:"+data.success);
+                        $("#searchResult").html("");
+                       
+                    }
+                },
+                error:function(jqXHR){
+                    alert("error2 occur "+ jqXHR.status);
+                }
+            });
+});
+});
+
+$(document).ready(function(){
+    $("#delete").click(function(){
+        $.ajax({
+            type:"POST",
+            url:"./admin/delete.php",
+            dataType:"json",
+            data:{
+                DBID:$("#DBID").val(),
+            },
+            success:function(data){
+                if (data.success) {
+                        //alert(data.errormes);
+                        $("#updateResult").html(data.errormes);
+                        $("#searchResult").html("");
+                        
+                    }else {
+                        $("#updateResult").html("error occurs:"+data.errormes+"succ:"+data.success);
+                        $("#searchResult").html("");
+                       
                     }
                 },
                 error:function(jqXHR){
