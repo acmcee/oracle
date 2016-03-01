@@ -16,12 +16,12 @@
 		<!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
         <script src="./js/jquery-2.2.0.min.js"></script>
         <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
-        <script src="./js/bootstrap.min.js"></script> 
+        <script src="./js/bootstrap.min.js"></script> 	
     </head>
     <body>
     <?php 
-        ini_set("error_reporting","E_ALL & ~E_NOTICE");
-        ?>
+        require("./body/checkser.php");
+    ?>
 <!-- 输出系统等级-->
 
 <div class="header">
@@ -249,7 +249,7 @@ else {
     unset($config);
     ?>
     <div>
-
+<script src="./js/my.js"></script>
 </body>
     <?php include ("./body/footer.php");?>
 </html>

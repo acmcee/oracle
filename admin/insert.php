@@ -61,8 +61,6 @@ else {
            
         }
     }
-
-
 }
 mysqli_close($con);
 ?>
