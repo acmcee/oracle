@@ -63,5 +63,3 @@ ini_set("error_reporting","E_ALL & ~E_NOTICE");
 </div>
 
 <!-- 包含自己的js脚本-->
-<script src="./js/my.js"></script> 
-

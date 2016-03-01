@@ -34,19 +34,7 @@ else {
             echo $search_result;
            
         }
-    }
-
-
-    
-
-
-    //sys_domain`='".$."',``='".$."',``='".$. "' 
-    //,``='".$."',``='".$."',``='".$."'
-    //,``='".$."',``='".$."',``='".$."'
-    //where `ID`='".$DBID."'";
-    //echo $update_sql;
-    //$result=mysqli_query($con,$update_sql);
-    
+    }    
 }
 mysqli_close($con);
 ?>
