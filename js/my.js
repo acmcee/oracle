@@ -20,6 +20,17 @@ $(document).ready(function(){
 	if (typeof(value_dir) != "undefined") {	
 		document.getElementById(value_dir).className="active";
 	}
+    var value_pageno=$_GET['page'];
+    if(value_pageno == "admin") {
+        //alert("admin");
+    }
+    else if (typeof(value_pageno) != "undefined" ) { 
+        //alert("pageno_"+value_pageno);
+        document.getElementById("pageno_"+value_pageno).className="active";
+    }
+    else {
+        document.getElementById("pageno_1").className="active";
+    }
 });
 
 

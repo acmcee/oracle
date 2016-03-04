@@ -1,3 +1,3 @@
 <?php 
-    return array('host'=>'10.70.0.101','username'=>'mon','password'=>'mon','dbname'=>'oracle_list');
+    return array('host'=>'192.168.56.102','username'=>'mon','password'=>'mon','dbname'=>'oracle_list');
 ?>

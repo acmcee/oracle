@@ -41,7 +41,7 @@
 
     
 	//这句就是获取page中的值，假如不存在page，那么页数就是1。
-	$num=30;         //每页显示30条数据
+	$num=15;         //每页显示30条数据
 	if (!$con)
 	{
 	die('Could not connect to database: ' . mysql_error());
@@ -111,7 +111,7 @@ else {
 				echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["sys_level"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
 			}  
 			echo "</table>";
-			echo "<hr>";
+			//echo "<hr>";
 			?>
 			<div id= "con">
 			<nav>
@@ -119,8 +119,8 @@ else {
 			<?php
 			//echo "<div id= \"con\">";
 			For($i=1;$i<=$pagenum;$i++){
-				echo "<li>";
-				$show=($i!=$page)?"<a href='index.php?page=".$i."'>$i</a>":"<a href=##>$i</a>";
+				echo "<li id=\"pageno_".$i."\">";
+				$show=($i!=$page)?"<a  href='index.php?page=".$i."'>$i</a>":"<a href=##>$i</a>";
 				echo $show."</li>";
 			}
 			//echo "</div>";?>
@@ -149,7 +149,7 @@ else {
 					echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
 				}  
 				echo "</table>";
-				echo "<hr>";
+				//echo "<hr>";
 				
 				?>
 				<div id= "con">
@@ -158,8 +158,8 @@ else {
 				<?php
 				//echo "<div id= \"con\">";
 				For($i=1;$i<=$pagenum;$i++){
-					echo "<li>";
-					$show=($i!=$page)?"<a href='index.php?page=".$i."&dir=$dir'>$i</a>":"<a href=##>$i</a>";
+					echo "<li id=\"pageno_".$i."\">";
+					$show=($i!=$page)?"<a  href='index.php?page=".$i."&dir=$dir'>$i</a>":"<a href=##>$i</a>";
 					echo $show."</li>";
 				}
 				//echo "</div>";?>
@@ -215,7 +215,7 @@ else {
 				}
 			}
 			echo "</table>";
-			echo "<hr>";
+			//echo "<hr>";
 			
 			?>
 				<div id= "con">
@@ -224,9 +224,9 @@ else {
 				<?php
 				//echo "<div id= \"con\">";
 				For($i=1;$i<=$pagenum;$i++){
-					echo "<li>";
+					echo "<li  id=\"pageno_".$i."\">";
 					if(isset($_GET['search_db'])) {
-						$show=($i!=$page)?"<a href='index.php?page=".$i."&keyword=$keyword&search_db=y'>$i</a>":"<a href=##>$i</a>";
+						$show=($i!=$page)?"<a  href='index.php?page=".$i."&keyword=$keyword&search_db=y'>$i</a>":"<a href=##>$i</a>";
 					}
 					else{
 						$show=($i!=$page)?"<a href='index.php?page=".$i."&keyword=$keyword&search_con=y'>$i</a>":"<a href=##>$i</a>";
