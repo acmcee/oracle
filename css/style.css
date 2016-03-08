@@ -1,4 +1,4 @@
-#search {
+﻿#search {
     text-align: center;
 }
 .help {
@@ -97,4 +97,7 @@ th td {
     color: red;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+.table {
+  margin-bottom: 0px;
 }
