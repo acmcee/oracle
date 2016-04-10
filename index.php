@@ -41,7 +41,7 @@
 
     
 	//这句就是获取page中的值，假如不存在page，那么页数就是1。
-	$num=15;         //每页显示30条数据
+	$num=20;         //每页显示30条数据
 	if (!$con)
 	{
 	die('Could not connect to database: ' . mysql_error());
@@ -105,10 +105,10 @@ else {
 			$info=mysqli_query($con,"select * from `oracle` limit $offset,$num ");   //获取相应页数所需要显示的数据
 			//echo "<hr>";
 			echo "<table  class=\"table\">";
-			echo  "<tr><th>ID</th><th>系统域</th><th>系统等级</th><th>数据库名</th><th>TNS(4A)</th><th>TNS(OLD)</th>
+			echo  "<tr><th>ID</th><th>系统域</th><th>系统等级</th><th>数据库名</th><th>TNS(4A)</th>
 			<th>主机名</th><th>IP</th><th>VIP</th><th>域名</th></tr>";
 			While($it=mysqli_fetch_array($info,MYSQLI_ASSOC)){
-				echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["sys_level"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
+				echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["sys_level"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
 			}  
 			echo "</table>";
 			//echo "<hr>";
@@ -143,10 +143,10 @@ else {
 				//echo "<hr>";
 				$info=mysqli_query($con,"select * from `oracle` where ifnull(sys_level,\"\") like '%".$category."%' limit $offset,$num "); 
 				echo "<table class=\"table\">";
-				echo  "<tr><th>ID</th><th>系统域</th><th>数据库名</th><th>TNS(4A)</th><th>TNS(OLD)</th>
+				echo  "<tr><th>ID</th><th>系统域</th><th>数据库名</th><th>TNS(4A)</th>
 				<th>主机名</th><th>IP</th><th>VIP</th><th>域名</th></tr>";
 				While($it=mysqli_fetch_array($info,MYSQLI_ASSOC)){
-					echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
+					echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
 				}  
 				echo "</table>";
 				//echo "<hr>";
@@ -172,8 +172,8 @@ else {
 		}  
 	else{  //有关键词设置或者搜索联系人已设置，搜索联系人。
 			//echo $keyword;
-			$total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where (ifnull(`ip`,\"\") like '%".$keyword."%' or ifnull(`vip`,\"\") like '%".$keyword."%') or  ifnull(hostname,\"\") like '%".$keyword."%' or (ifnull(tns,\"\") like '%".$keyword."%' or ifnull(oldtns,\"\") like '%".$keyword."%') or (ifnull(`desc`,\"\") like '%".$keyword."%'  or ifnull(`system`,\"\") like '%".$keyword."%') or ifnull(domain,\"\") like '%".$keyword."%' ;"));
-			$info=mysqli_query($con,"select * from `oracle` where (ifnull(`ip`,\"\") like '%".$keyword."%' or ifnull(`vip`,\"\") like '%".$keyword."%') or  ifnull(hostname,\"\") like '%".$keyword."%' or (ifnull(tns,\"\") like '%".$keyword."%' or ifnull(oldtns,\"\") like '%".$keyword."%') or (ifnull(`desc`,\"\") like '%".$keyword."%'   or ifnull(`system`,\"\") like '%".$keyword."%') or ifnull(domain,\"\") like '%".$keyword."%' limit $offset,$num;");
+			$total=mysqli_num_rows(mysqli_query($con,"select 1 from `oracle` where (ifnull(`ip`,\"\") like '%".$keyword."%' or ifnull(`vip`,\"\") like '%".$keyword."%') or  ifnull(hostname,\"\") like '%".$keyword."%' or (ifnull(tns,\"\") like '%".$keyword."%') or (ifnull(`desc`,\"\") like '%".$keyword."%'  or ifnull(`system`,\"\") like '%".$keyword."%') or ifnull(domain,\"\") like '%".$keyword."%' ;"));
+			$info=mysqli_query($con,"select * from `oracle` where (ifnull(`ip`,\"\") like '%".$keyword."%' or ifnull(`vip`,\"\") like '%".$keyword."%') or  ifnull(hostname,\"\") like '%".$keyword."%' or (ifnull(tns,\"\") like '%".$keyword."%' ) or (ifnull(`desc`,\"\") like '%".$keyword."%'   or ifnull(`system`,\"\") like '%".$keyword."%') or ifnull(domain,\"\") like '%".$keyword."%' limit $offset,$num;");
 	
 			$nout="";
 		
@@ -202,10 +202,10 @@ else {
 			//echo "<hr>";
 			echo "<table class=\"table\" >";
 			if(isset($_GET['search_db'])) {//如果搜索数据库设置了值，则搜索数据库信息
-				echo  "<tr><th>ID</th><th>系统域</th><th>数据库名</th><th>TNS(4A)</th><th>TNS(OLD)</th>
+				echo  "<tr><th>ID</th><th>系统域</th><th>数据库名</th><th>TNS(4A)</th>
 				<th>主机名</th><th>IP</th><th>VIP</th><th>域名</th></tr>";
 				While($it=mysqli_fetch_array($info,MYSQLI_ASSOC)){
-					echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["OLDTNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
+					echo "<tr><td>".$it["ID"]."</td><td>".$it["sys_domain"]."</td><td>".$it["desc"]."</td><td>".$it["TNS"]."</td><td>".$it["hostname"]."</td><td>".$it["ip"]."</td><td>".$it["vip"]."</td><td>".$it["domain"]."</td></tr>";
 				}  
 			}else {//搜索联系人信息返回
 				echo  "<tr><th>ID</th><th>数据库名</th><th>TNS(4A)</th><th>局方</th>
